@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SOURCES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let article of news?.sources">
+        <ion-card target="_blank" href="{{article.url}}">
+
+          <ion-card-content>
+            <ion-card-title rows="3">
+              {{article.name}}
+            </ion-card-title>
+            <p>{{article.description}}</p>
+          </ion-card-content>
+
+          <ion-item class="text-center">
+            <i><small>
+                {{article.category}}
+              </small></i>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

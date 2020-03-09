@@ -33,7 +33,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../../sources/sources.module').then(m => m.SourcesPageModule)
+              import('../sources/sources.module').then(m => m.SourcesPageModule)
           }
         ]
       },
