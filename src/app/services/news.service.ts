@@ -30,7 +30,7 @@ export class NewsService {
       tap(value =>
       {
         // this.loading.dismiss()
-        console.log(value)
+        console.log('FETCHED ARTICLES')
       }))
   }
 }

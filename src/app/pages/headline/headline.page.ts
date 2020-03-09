@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-headline',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadlinePage implements OnInit {
 
-  constructor() { }
+  news: any
+
+  constructor(private newsService: NewsService,) { }
 
   ngOnInit() {
+    this.newsService.getData('/everything?q=headlines&from=2020-03-08&to=2020-03-08&sortBy=popularity').subscribe(data => {
+      this.news = data;
+      console.log('FECTHED TOP HEADLINES', data)
+    })
   }
 
 }

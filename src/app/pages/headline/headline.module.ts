@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { HeadlinePageRoutingModule } from './headline-routing.module';
 
 import { HeadlinePage } from './headline.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HeadlinePageRoutingModule
+    HeadlinePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [HeadlinePage]
 })
