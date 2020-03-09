@@ -19,7 +19,7 @@ export class NewsService {
 
   async showLoading() {
     this.loading = await this.loadingController.create({
-      duration:2000
+      duration:500
     })
     return await this.loading.present()
   }
