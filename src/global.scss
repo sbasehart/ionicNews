@@ -18,6 +18,7 @@
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 @import './theme/animations.scss';
+@import "./theme/variables.scss";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -27,6 +28,6 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 ion-card {
-    animation: moveInLeft 1.5s ease-in
+    animation: moveInLeft 1.5s ease-in;
 }
 
