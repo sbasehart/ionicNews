@@ -28,6 +28,15 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 ion-card {
+    animation: cardAnimation 1.3s ease-in;
+}
+
+ion-title {
+    animation: moveInRight 1.5s ease-in;
+}
+
+.header-icon {
     animation: moveInLeft 1.5s ease-in;
 }
+
 
