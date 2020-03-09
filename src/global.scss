@@ -33,7 +33,7 @@ ion-card {
 
 ion-title {
     animation: moveInRight 1.5s ease-in;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .header-icon {
