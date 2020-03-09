@@ -1,0 +1,23 @@
+<ion-card target="_blank" href="{{article.url}}">
+  <img ion-img *ngIf="article.urlToImage" [src]="article.urlToImage" alt="Spock">
+
+  <ion-item>
+    <ion-icon name="calendar" slot="start"></ion-icon>
+    <ion-label>
+      {{article.publishedAt | date}}
+    </ion-label>
+  </ion-item>
+
+  <ion-card-content>
+    <ion-card-title rows="3">
+      {{article.title}}
+    </ion-card-title>
+    <p>{{article.description}}</p>
+  </ion-card-content>
+
+  <ion-item class="text-center">
+    <i><small>
+      {{article.author}}
+    </small></i>
+  </ion-item>
+</ion-card>

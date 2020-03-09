@@ -4,8 +4,28 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  // {
+  //   path: 'top-news',
+  //   loadChildren: () => import('./top-news/top-news.module').then( m => m.TopNewsPageModule)
+  // },
+  // {
+  //   path: 'headline',
+  //   loadChildren: () => import('./headline/headline.module').then( m => m.HeadlinePageModule)
+  // },
+  // {
+  //   path: 'sources',
+  //   loadChildren: () => import('./sources/sources.module').then( m => m.SourcesPageModule)
+  // },
+  // {
+  //   path: 'favorites',
+  //   loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+  // },
+  // {
+  //   path: 'settings',
+  //   loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  // }
 ];
 @NgModule({
   imports: [
