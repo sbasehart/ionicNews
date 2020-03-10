@@ -10,7 +10,7 @@ import { AnimationService, AnimationBuilder } from 'css-animator';
   styleUrls: ['./favorites.page.scss'],
 })
 export class FavoritesPage implements OnInit {
-  @ViewChild('myElement', {static: false}) 
+  @ViewChild('animation', {static: false}) 
   myElem;
   private animator: AnimationBuilder;
  
@@ -22,11 +22,6 @@ export class FavoritesPage implements OnInit {
 
   ngOnInit() {
     this.getFavorites()
-  }
-
-  onRefresh() {
-    this.getFavorites()
-    this.animateElem()
   }
 
   getFavorites() {
@@ -63,12 +58,17 @@ export class FavoritesPage implements OnInit {
     await alert.present();
   }
 
+  onRefresh() {
+    this.getFavorites()
+    this.animateElem()
+  }
+
   remove(source) {
     this.getFavorites()
   }
 
   animateElem() {
-    this.animator.setType('spin').show(this.myElem);
+    this.animator.setType('spin').show(this.myElem.nativeElement);
   }
 
 }

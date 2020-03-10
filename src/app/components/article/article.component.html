@@ -1,5 +1,5 @@
 <ion-card target="_blank" href="{{article.url}}">
-  <img ion-img *ngIf="article.urlToImage" [src]="article.urlToImage" alt="Spock">
+  <img ion-img *ngIf="article.urlToImage" [src]="article.urlToImage" [alt]="article.title">
 
   <ion-item>
     <ion-icon name="calendar" slot="start"></ion-icon>
