@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-source',
@@ -7,14 +8,16 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./source.page.scss'],
 })
 export class SourcePage implements OnInit {
-  sources;
+  news;
+  id;
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.newsService.getData('/sources?language=en').subscribe(data => {
-      this.sources = data['sources'];
-      console.log('FETCHED SOURCES', data)
+    this.id = this.activatedRoute.snapshot.paramMap.get('id')
+    this.newsService.getData(`everything?sources=${this.id}`).subscribe(data => {
+      this.news = data;
+      console.log(`FETCHED news from ${this.id}`, data)
     })
   }
 

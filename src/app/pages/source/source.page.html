@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar [color]="dynamicColor? dynamicColor:'primary'">
-    <ion-title slot="start">source</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="tabs/sources" text="Back" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-icon class="header-icon" slot="end" name="list-sharp"></ion-icon>
+    <ion-title>{{id}}</ion-title>
+    <!-- <ion-icon class="header-icon" slot="end" name="list-sharp"></ion-icon> -->
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-
+  <app-articles [news]="news"></app-articles>
 </ion-content>
