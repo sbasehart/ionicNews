@@ -1,10 +1,45 @@
 <ion-header>
   <ion-toolbar [color]="dynamicColor? dynamicColor:'primary'">
-    <ion-title>favorites</ion-title>
-    <ion-icon class="header-icon" slot="end" name="heart"></ion-icon>
+    <ion-title><ion-icon class="header-icon" name="heart"></ion-icon>
+      favorites</ion-title>
+      <ion-buttons slot="end">
+        <ion-button animates #animation="animates" (click)="onRefresh()">
+          <ion-icon name="refresh" class="arrow-animation"></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="dynamicColor? dynamicColor:'primary-contrast'"> 
-
+<ion-content> 
+  <ion-grid>
+    <ion-row *ngIf="sources">
+      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources">
+        <ion-card>
+          <ion-list>
+            <ion-item href="tabs/sources/{{source.id}})">
+              <ion-label text-wrap>
+                <ion-text>
+                  <h2>{{source.name}}</h2>
+                </ion-text>
+                <ion-text><ion-badge>{{source.category}}</ion-badge></ion-text>
+                <ion-text>
+                  <h4>{{source.description}}</h4>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-button color="primary" (click)="presentAlertConfirm(source)">
+                  <ion-icon name="heart-dislike"></ion-icon>
+                </ion-button>
+                <ion-button color="primary" (click)="share(source)">
+                  <ion-icon name="share-social-sharp"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-item-sliding>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

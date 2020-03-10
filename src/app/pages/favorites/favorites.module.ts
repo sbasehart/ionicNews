@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritesPageRoutingModule } from './favorites-routing.module';
 
 import { FavoritesPage } from './favorites.page';
+import { AnimatesDirective } from 'css-animator';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritesPageRoutingModule
+    FavoritesPageRoutingModule,
   ],
-  declarations: [FavoritesPage]
+  declarations: [FavoritesPage, AnimatesDirective]
 })
 export class FavoritesPageModule {}

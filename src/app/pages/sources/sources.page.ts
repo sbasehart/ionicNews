@@ -29,6 +29,7 @@ export class SourcesPage implements OnInit {
       items.push(source)
       this.storage.set('favorite', JSON.stringify(items))
     })
+    console.log(source)
   }
 
   share(source) {

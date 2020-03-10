@@ -1,9 +1,8 @@
 <ion-header>
   <ion-toolbar [color]="dynamicColor? dynamicColor:'primary'">
-    <ion-title slot="start">sources</ion-title>
+    <ion-title slot="start"><ion-icon class="header-icon" name="list-sharp"></ion-icon>sources</ion-title>
     <ion-searchbar type="text" color="light" placeholder="Search For Source" clearInput [(ngModel)]="term">
     </ion-searchbar>
-    <ion-icon class="header-icon" slot="end" name="list-sharp"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
