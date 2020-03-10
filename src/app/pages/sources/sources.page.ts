@@ -30,7 +30,7 @@ export class SourcesPage implements OnInit {
       items.push(source)
       this.storage.set('favorite', JSON.stringify(items))
     })
-    console.log(source)
+    console.log('Added to Favorites:', source)
     this.presentToast()
   }
 
