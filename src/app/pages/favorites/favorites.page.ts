@@ -43,13 +43,15 @@ export class FavoritesPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+          handler: () => {
+            console.log('Confirm Cancel');
           }
         }, {
           text: 'Okay',
           handler: () => {
-            this.remove(source);
+            const index = this.sources.indexOf(source);
+            this.sources.splice(index, 1);
+            this.storage.set('favorite', JSON.stringify(this.sources))
           }
         }
       ]
@@ -61,10 +63,6 @@ export class FavoritesPage implements OnInit {
   onRefresh() {
     this.getFavorites()
     this.animateElem()
-  }
-
-  remove(source) {
-    this.getFavorites()
   }
 
   animateElem() {

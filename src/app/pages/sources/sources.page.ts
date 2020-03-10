@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { Storage } from "@ionic/storage";
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sources',
@@ -11,7 +12,7 @@ export class SourcesPage implements OnInit {
   sources;
   term = ''
 
-  constructor(private newsService: NewsService, private storage: Storage) { }
+  constructor(private newsService: NewsService, private storage: Storage, public toastController: ToastController) { }
 
   ngOnInit() {
     this.newsService.getData('/sources?language=en').subscribe(data => {
@@ -30,10 +31,19 @@ export class SourcesPage implements OnInit {
       this.storage.set('favorite', JSON.stringify(items))
     })
     console.log(source)
+    this.presentToast()
   }
 
   share(source) {
 
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: `Added to Favorites`,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
