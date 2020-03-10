@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar [color]="dynamicColor? dynamicColor:'primary'">
     <ion-title slot="start">sources</ion-title>
-    <ion-searchbar type="text" color="light" placeholder="Search" clearInput [(ngModel)]="term">
+    <ion-searchbar type="text" color="light" placeholder="Search For Source" clearInput [(ngModel)]="term">
     </ion-searchbar>
     <ion-icon class="header-icon" slot="end" name="list-sharp"></ion-icon>
   </ion-toolbar>
@@ -10,8 +10,8 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngIf="sources">
-      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources | search: term">
-        <ion-card target="_blank" href="{{source.url}}">
+      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources | search: term" >
+        <ion-card href="tabs/sources/{{source.id}})">
 
           <ion-card-content>
             <ion-card-title rows="3">
