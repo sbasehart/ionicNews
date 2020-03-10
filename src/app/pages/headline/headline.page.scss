@@ -4,4 +4,7 @@ ion-toolbar {
 
 .category {
     text-transform: capitalize;
+    min-width: fit-content;
+    max-width:100%;
+    overflow: scroll
 }

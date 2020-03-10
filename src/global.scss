@@ -40,6 +40,11 @@ ion-button {
     animation: fadeIn 2s ease-in !important
 }
 
+ion-slides {
+    overflow: scroll;
+    --scroll-bar-background: primary
+}
+
 .header-icon {
     animation: moveInLeft 1.7s ease-in;
     margin-right: 10px;

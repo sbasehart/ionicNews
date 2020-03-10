@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-headline',
@@ -7,6 +8,11 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./headline.page.scss'],
 })
 export class HeadlinePage implements OnInit {
+  @ViewChild('mySlider', {static: true}) slider: IonSlides;
+    sliderOpts = {
+        autoplay: true,
+        speed: 500,
+      };
 
   news: any
   categories = [
