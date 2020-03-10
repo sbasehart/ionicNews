@@ -26,7 +26,7 @@ export class HeadlinePage implements OnInit {
     'Arts',
     'Finance',
     'Health',
-    'Government'
+    // 'Government'
   ]
 
   constructor(private newsService: NewsService,) { }
