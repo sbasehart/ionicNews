@@ -36,6 +36,10 @@ ion-title {
     text-transform: capitalize;
 }
 
+ion-button {
+    animation: fadeIn 2s ease-in !important
+}
+
 .header-icon {
     animation: moveInLeft 1.7s ease-in;
     margin-right: 10px;
