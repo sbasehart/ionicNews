@@ -1,28 +1,25 @@
 <ion-header>
   <ion-toolbar [color]="dynamicColor? dynamicColor:'primary'">
-    <ion-title>sources</ion-title>
+    <ion-title slot="start">sources</ion-title>
+    <ion-searchbar type="text" color="light" placeholder="Search" clearInput [(ngModel)]="term">
+    </ion-searchbar>
     <ion-icon class="header-icon" slot="end" name="list-sharp"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let article of news?.sources">
-        <ion-card target="_blank" href="{{article.url}}">
+    <ion-row *ngIf="sources">
+      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources | search: term">
+        <ion-card target="_blank" href="{{source.url}}">
 
           <ion-card-content>
             <ion-card-title rows="3">
-              {{article.name}}
+              {{source.name}}
             </ion-card-title>
-            <p>{{article.description}}</p>
+            <ion-badge>{{source.category}}</ion-badge>
+            <p>{{source.description}}</p>
           </ion-card-content>
-
-          <ion-item class="text-center">
-            <i><small>
-                {{article.category}}
-              </small></i>
-          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>

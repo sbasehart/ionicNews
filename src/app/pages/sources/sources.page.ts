@@ -7,13 +7,14 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./sources.page.scss'],
 })
 export class SourcesPage implements OnInit {
-  news: any
+  sources;
+  term = ''
 
   constructor(private newsService: NewsService,) { }
 
   ngOnInit() {
-    this.newsService.getData('/sources?language=en&country=us').subscribe(data => {
-      this.news = data;
+    this.newsService.getData('/sources?language=en').subscribe(data => {
+      this.sources = data['sources'];
       console.log('FETCHED SOURCES', data)
     })
   }

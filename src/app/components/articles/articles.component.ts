@@ -6,7 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./articles.component.scss'],
 })
 export class ArticlesComponent implements OnInit {
-  @Input() news;
+  @Input() 
+  news;
+  fakeArticles = new Array(20)
 
   constructor() { }
 
