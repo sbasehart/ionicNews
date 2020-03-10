@@ -10,16 +10,31 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngIf="sources">
-      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources | search: term" >
-        <ion-card href="tabs/sources/{{source.id}})">
-
-          <ion-card-content>
-            <ion-card-title rows="3">
-              {{source.name}}
-            </ion-card-title>
-            <ion-badge>{{source.category}}</ion-badge>
-            <p>{{source.description}}</p>
-          </ion-card-content>
+      <ion-col size=12 size-lg=2 size-md=3 size-sm=6 size-xs=12 *ngFor="let source of sources | search: term">
+        <ion-card>
+          <ion-list>
+            <ion-item href="tabs/sources/{{source.id}})">
+              <ion-label text-wrap>
+                <ion-text>
+                  <h2>{{source.name}}</h2>
+                </ion-text>
+                <ion-text><ion-badge>{{source.category}}</ion-badge></ion-text>
+                <ion-text>
+                  <h4>{{source.description}}</h4>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-button color="primary" (click)="favorite(source)">
+                  <ion-icon name="heart-sharp"></ion-icon>
+                </ion-button>
+                <ion-button color="primary" (click)="share(source)">
+                  <ion-icon name="share-social-sharp"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-item-sliding>
+          </ion-list>
         </ion-card>
       </ion-col>
     </ion-row>
