@@ -32,14 +32,14 @@ export class HeadlinePage implements OnInit {
   constructor(private newsService: NewsService,) { }
 
   ngOnInit() {
-    this.newsService.getData('/everything?q=headlines&from=2020-03-08&to=2020-03-08&sortBy=popularity').subscribe(data => {
+    this.newsService.getData('/everything?q=headlines&language=en&from=2020-03-08&to=2020-03-08&sortBy=popularity').subscribe(data => {
       this.news = data;
       console.log('FECTHED TOP HEADLINES', data)
     })
   }
 
   getCategory(category) {
-    this.newsService.getData(`everything?q=${category.toLowerCase()}&from=2020-03-08&to=2020-03-08&sortBy=popularity`).subscribe(data => {
+    this.newsService.getData(`everything?q=${category.toLowerCase()}&language=en&from=2020-03-08&to=2020-03-08&sortBy=popularity`).subscribe(data => {
       this.news = data;
       console.log('FECTHED TOP HEADLINES of', category, data)
     })
