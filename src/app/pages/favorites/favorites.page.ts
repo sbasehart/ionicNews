@@ -36,7 +36,7 @@ export class FavoritesPage implements OnInit {
 
   async presentAlertConfirm(source) {
     const alert = await this.alertController.create({
-      header: 'Confirm!',
+      header: 'Please confirm',
       message: 'Unfavorite this source?',
       buttons: [
         {
@@ -44,7 +44,7 @@ export class FavoritesPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Confirm Cancel');
+            console.log('Unfavorite cancelled');
           }
         }, {
           text: 'Okay',
