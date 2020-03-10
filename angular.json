@@ -39,7 +39,11 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "src/assets/js/darkmode.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
