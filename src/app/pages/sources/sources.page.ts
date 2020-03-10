@@ -33,11 +33,7 @@ export class SourcesPage implements OnInit {
     console.log('Added to Favorites:', source)
     this.presentToast()
   }
-
-  share(source) {
-
-  }
-
+  
   async presentToast() {
     const toast = await this.toastController.create({
       message: `Added to Favorites`,
