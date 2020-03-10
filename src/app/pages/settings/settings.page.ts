@@ -9,7 +9,9 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private storage: Storage, private alertController: AlertController, public toastController: ToastController) { }
+  constructor(private storage: Storage, private alertController: AlertController, public toastController: ToastController) {
+    
+  }
 
   ngOnInit() {
   }
@@ -44,6 +46,31 @@ export class SettingsPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  darkToggle() {
+    // Use matchMedia to check the user preference
+    const toggle = document.querySelector('#themeToggle') as HTMLIonToggleElement;
+
+    // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+    toggle.addEventListener('ionChange', (ev) => {
+      document.body.classList.toggle('dark', (<any>ev).detail.checked);
+    });
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Listen for changes to the prefers-color-scheme media query
+    prefersDark.addListener((e) => checkToggle(e.matches));
+
+    // Called when the app loads
+    function loadApp() {
+      checkToggle(prefersDark.matches);
+    }
+
+    // Called by the media query to check/uncheck the toggle
+    function checkToggle(shouldCheck) {
+      toggle.checked = shouldCheck;
+    }
   }
 
 }
