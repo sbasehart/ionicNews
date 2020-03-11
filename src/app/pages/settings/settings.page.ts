@@ -9,11 +9,14 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
+  toggleOn = false
+
   constructor(private storage: Storage, private alertController: AlertController, public toastController: ToastController) {
     
   }
 
   ngOnInit() {
+    this.storage.get('toggle').then(disc => this.toggleOn = disc);
   }
 
   async onClearFavorites() {
@@ -62,14 +65,11 @@ export class SettingsPage implements OnInit {
     // Listen for changes to the prefers-color-scheme media query
     prefersDark.addListener((e) => checkToggle(e.matches));
 
-    // Called when the app loads
-    function loadApp() {
-      checkToggle(prefersDark.matches);
-    }
-
     // Called by the media query to check/uncheck the toggle
     function checkToggle(shouldCheck) {
       toggle.checked = shouldCheck;
+      this.storage.set('toggle', JSON.stringify(this.toggleOn));
+      this.storage.set('toggle', this.toggleOn);
     }
   }
 
